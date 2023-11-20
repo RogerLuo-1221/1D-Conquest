@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class DrawCards : MonoBehaviour
+public class DrawCards : NetworkBehaviour
 {
-    public GameObject card;
-    public GameObject playerArea;
-
+    public PlayerManager playerManager;
+    
+    
+    
     public void OnClick()
     {
-        for (var i = 0; i < 5; i++)
-        {
-            var newCard = Instantiate(card, Vector2.zero, Quaternion.identity);
-            newCard.transform.SetParent(playerArea.transform, false);
-        }
+        var networkId = NetworkClient.connection.identity;
+        playerManager = networkId.GetComponent<PlayerManager>();
+        playerManager.CmdDealCards();
     }
 }
