@@ -7,8 +7,6 @@ public class DrawCards : NetworkBehaviour
 {
     public PlayerManager playerManager;
     
-    
-    
     public void OnClick()
     {
         var networkId = NetworkClient.connection.identity;

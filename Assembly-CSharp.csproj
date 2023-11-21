@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\FlipCards.cs" />
      <Compile Include="Assets\Scripts\DrawCards.cs" />
      <Compile Include="Assets\Scripts\DragDrop.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
@@ -350,9 +351,6 @@
      <Reference Include="UnityEditor.UnityConnectModule">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>C:\Users\luohr\1D-Conquest\Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-     </Reference>
      <Reference Include="Mono.CecilX.Rocks">
      <HintPath>C:\Users\luohr\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
      </Reference>
@@ -361,6 +359,9 @@
      </Reference>
      <Reference Include="Mono.CecilX">
      <HintPath>C:\Users\luohr\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+     <HintPath>C:\Users\luohr\1D-Conquest\Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Mono.CecilX.Mdb">
      <HintPath>C:\Users\luohr\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll</HintPath>
@@ -787,6 +788,10 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Mirror.csproj">
+      <Project>{e93f2339-5382-a813-0dbc-5e30b33d738e}</Project>
+      <Name>Mirror</Name>
+    </ProjectReference>
     <ProjectReference Include="kcp2k.csproj">
       <Project>{60609ab7-9903-84f5-a25d-b326e5b118e1}</Project>
       <Name>kcp2k</Name>
@@ -794,22 +799,6 @@
     <ProjectReference Include="Mirror.Editor.csproj">
       <Project>{57d2bdb8-b82e-a45c-6cb7-c7e9836a1275}</Project>
       <Name>Mirror.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Telepathy.csproj">
-      <Project>{1235d3e5-b9b2-8f42-1c32-27d5dcdc8b37}</Project>
-      <Name>Telepathy</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{4a7813a4-8620-b0af-d174-9ba147537d31}</Project>
-      <Name>Mirror.Components</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Examples.csproj">
-      <Project>{0d17a6f6-2d30-ad7e-2d01-1af194679717}</Project>
-      <Name>Mirror.Examples</Name>
-    </ProjectReference>
-    <ProjectReference Include="Mirror.Transports.csproj">
-      <Project>{e5969384-d6a3-7d17-c9b8-ddb169f02a4d}</Project>
-      <Name>Mirror.Transports</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
       <Project>{a566c552-6a4c-3384-273a-d84b7283b56c}</Project>
@@ -819,13 +808,25 @@
       <Project>{27f3fb80-daa9-6534-859b-046d219f1d87}</Project>
       <Name>Mirror.Authenticators</Name>
     </ProjectReference>
-    <ProjectReference Include="Mirror.csproj">
-      <Project>{e93f2339-5382-a813-0dbc-5e30b33d738e}</Project>
-      <Name>Mirror</Name>
+    <ProjectReference Include="Telepathy.csproj">
+      <Project>{1235d3e5-b9b2-8f42-1c32-27d5dcdc8b37}</Project>
+      <Name>Telepathy</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{6af174ff-4042-5f02-01d9-249cf78351ed}</Project>
       <Name>SimpleWebTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Examples.csproj">
+      <Project>{0d17a6f6-2d30-ad7e-2d01-1af194679717}</Project>
+      <Name>Mirror.Examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Transports.csproj">
+      <Project>{e5969384-d6a3-7d17-c9b8-ddb169f02a4d}</Project>
+      <Name>Mirror.Transports</Name>
+    </ProjectReference>
+    <ProjectReference Include="Mirror.Components.csproj">
+      <Project>{4a7813a4-8620-b0af-d174-9ba147537d31}</Project>
+      <Name>Mirror.Components</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

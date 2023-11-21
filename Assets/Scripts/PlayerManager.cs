@@ -53,10 +53,26 @@ public class PlayerManager : NetworkBehaviour
         switch (type)
         {
             case ("Dealt"):
-                newCard.transform.SetParent(isOwned ? playerArea.transform : opponentArea.transform, false);
+                
+                if (isOwned)
+                {
+                    newCard.transform.SetParent(playerArea.transform, false);
+                    newCard.GetComponent<FlipCards>().FlipCard();
+                }
+                else
+                {
+                    newCard.transform.SetParent(opponentArea.transform, false);
+                }
+                
                 break;
+            
             case ("Played"):
+                
                 newCard.transform.SetParent(publicArea.transform, false);
+                
+                if (isOwned) newCard.GetComponent<FlipCards>().FlipCard();
+                newCard.GetComponent<FlipCards>().AnimatedFlipCard();
+                    
                 break;
         }
     }
