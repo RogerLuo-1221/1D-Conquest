@@ -145,12 +145,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2965518836449537744}
   - component: {fileID: 4290788563092731882}
+  - component: {fileID: -3609916297123201306}
   - component: {fileID: 5977580243154130819}
   - component: {fileID: 9196282821983091200}
   - component: {fileID: 4824561868669951276}
   - component: {fileID: 2515771506346966506}
   - component: {fileID: 5326314076923139647}
-  - component: {fileID: -3609916297123201306}
   m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
@@ -198,6 +198,19 @@ MonoBehaviour:
   syncInterval: 0
   canvas: {fileID: 0}
   playerManager: {fileID: 0}
+--- !u!114 &-3609916297123201306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139534141727907049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52ba2faf0a93f545a54176367983250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: {fileID: 1137731583238454886}
 --- !u!114 &5977580243154130819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,19 +355,6 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
---- !u!114 &-3609916297123201306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139534141727907049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52ba2faf0a93f545a54176367983250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  number: {fileID: 1137731583238454886}
 --- !u!1 &6354671721586472952
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,7 +101,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  card: {fileID: 4139534141727907049, guid: ec8f0658a86ad3247ad9179eadc12437, type: 3}
+  cardPrefab: {fileID: 4139534141727907049, guid: ec8f0658a86ad3247ad9179eadc12437, type: 3}
   playerArea: {fileID: 0}
   opponentArea: {fileID: 0}
   publicArea: {fileID: 0}

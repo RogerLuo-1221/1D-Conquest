@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using TMPro;
 
 public class PlayerManager : NetworkBehaviour
 {
-    public GameObject card;
+    public GameObject cardPrefab;
     public GameObject playerArea;
     public GameObject opponentArea;
     public GameObject publicArea;
 
-    private List<GameObject> deck = new List<GameObject>();
+    private List<GameObject> _deck = new List<GameObject>();
+    private int _deckIndex;
 
     public override void OnStartClient()
     {
@@ -26,7 +28,32 @@ public class PlayerManager : NetworkBehaviour
     {
         base.OnStartServer();
         
-        deck.Add(card);
+        GenerateDeck();
+        ShuttleDeck();
+    }
+
+    private void GenerateDeck()
+    {
+        for (var cardValue = 1; cardValue <= 13; cardValue++)
+        {
+            for (var cardCount = 0; cardCount < 4; cardCount++)
+            {
+                var card = Instantiate(cardPrefab, Vector2.zero, Quaternion.identity);
+                card.transform.GetChild(1).GetComponent<TMP_Text>().text = cardValue.ToString();
+                NetworkServer.Spawn(card, connectionToClient);
+                
+                _deck.Add(card);
+            }
+        }
+    }
+
+    private void ShuttleDeck()
+    {
+        for (var i = 0; i < 52; i++)
+        {
+            var swapIndex = Random.Range(0, 52);
+            (_deck[i], _deck[swapIndex]) = (_deck[swapIndex], _deck[i]);
+        }
     }
     
     [Command]
@@ -34,11 +61,16 @@ public class PlayerManager : NetworkBehaviour
     {
         for (var i = 0; i < 5; i++)
         {
-            var newCard = Instantiate(deck[0], Vector2.zero, Quaternion.identity);
-            NetworkServer.Spawn(newCard, connectionToClient);
-            
-            RpcRenderCards(newCard, "Dealt");
+            RpcRenderCards(NextCardInDeck(), "Deal");
         }
+    }
+    
+    private GameObject NextCardInDeck()
+    {
+        var returnCard = _deck[_deckIndex];
+        _deckIndex++;
+
+        return returnCard;
     }
 
     [Command]
@@ -52,7 +84,7 @@ public class PlayerManager : NetworkBehaviour
     {
         switch (type)
         {
-            case ("Dealt"):
+            case ("Deal"):
                 
                 if (isOwned)
                 {
@@ -70,10 +102,14 @@ public class PlayerManager : NetworkBehaviour
                 
                 newCard.transform.SetParent(publicArea.transform, false);
                 
-                if (isOwned) newCard.GetComponent<FlipCards>().FlipCard();
+                if (isOwned)
+                {
+                    newCard.GetComponent<FlipCards>().FlipCard();
+                } 
                 newCard.GetComponent<FlipCards>().AnimatedFlipCard();
                     
                 break;
         }
     }
+    
 }

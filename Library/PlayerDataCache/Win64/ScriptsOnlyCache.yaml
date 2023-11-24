@@ -730,7 +730,7 @@ ScriptsOnlyBuild:
     className: GUIConsole
   - hash:
       serializedVersion: 2
-      Hash: c83d18237dc55b80e06138dbf985aa64
+      Hash: bd549b1212da7ad9a625ff85844f0c45
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DrawCards

@@ -1,16 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
+using UnityEngine.Serialization;
 
 public class DrawCards : NetworkBehaviour
 {
-    public PlayerManager playerManager;
-    
+    [SerializeField] private PlayerManager _playerManager;
+
     public void OnClick()
     {
         var networkId = NetworkClient.connection.identity;
-        playerManager = networkId.GetComponent<PlayerManager>();
-        playerManager.CmdDealCards();
+        _playerManager = networkId.GetComponent<PlayerManager>();
+        _playerManager.CmdDealCards();
     }
 }

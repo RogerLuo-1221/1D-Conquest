@@ -15,31 +15,23 @@ public class FlipCards : MonoBehaviour
 
     private IEnumerator CardFlipping()
     {
-        for (var i = 0f; i <= 180f; i += 10f)
+        for (var i = -180f; i <= 0; i += 10f)
         {
             transform.rotation = Quaternion.Euler(0f, i, 0f);
             
-            if (Math.Abs(i - 90f) < 0.1f)
+            if (Math.Abs(i + 90f) < 0.1f)
             {
                 FlipCard();
             }
 
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.2f);
         }
-        
-        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-    
+
     public void FlipCard()
     {
-        if (_isFront)
-        {
-            SetBack();
-        }
-        else
-        {
-            SetFront();
-        }
+        if (_isFront) SetBack();
+        else SetFront();
     }
 
     private void SetFront()

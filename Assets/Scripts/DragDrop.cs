@@ -12,26 +12,20 @@ public class DragDrop : NetworkBehaviour
     private bool _isDragging;
     private GameObject _startParent;
     private Vector2 _startPos;
-    private bool _isOverPublicArea;
     private GameObject _dropZone;
     
     public void Start()
     {
         canvas = GameObject.Find("Canvas");
-
-        var networkId = NetworkClient.connection.identity;
-        playerManager = networkId.GetComponent<PlayerManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        _isOverPublicArea = true;
         _dropZone = collision.gameObject;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        _isOverPublicArea = false;
         _dropZone = null;
     }
 
@@ -53,10 +47,12 @@ public class DragDrop : NetworkBehaviour
         
         _isDragging = false;
 
-        if (_isOverPublicArea)
+        if (_dropZone != null)
         {
             transform.SetParent(_dropZone.transform, false);
-
+            
+            var networkId = NetworkClient.connection.identity;
+            playerManager = networkId.GetComponent<PlayerManager>();
             playerManager.CmdPlayCards(gameObject);
         }
         else
