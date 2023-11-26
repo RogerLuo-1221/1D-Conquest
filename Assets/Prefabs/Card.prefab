@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 4290788563092731882}
   - component: {fileID: -3609916297123201306}
   - component: {fileID: 5977580243154130819}
+  - component: {fileID: 5350958627921594823}
   - component: {fileID: 9196282821983091200}
   - component: {fileID: 4824561868669951276}
   - component: {fileID: 2515771506346966506}
@@ -256,6 +257,40 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5350958627921594823}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: GetValueById
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &5350958627921594823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4139534141727907049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a481f2fd5dffb154f93dd17b1c35e798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  id: 0
+  value: 0
+  number: {fileID: 2409210357598658864}
 --- !u!61 &9196282821983091200
 BoxCollider2D:
   m_ObjectHideFlags: 0

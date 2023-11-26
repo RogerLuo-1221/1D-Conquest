@@ -343,13 +343,13 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>C:\Users\luohr\1D-Conquest\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>C:\Users\luohr\OneDrive\Documents\GitHub\1D-Conquest\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="Mono.CecilX">
-     <HintPath>C:\Users\luohr\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
+     <HintPath>C:\Users\luohr\OneDrive\Documents\GitHub\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll</HintPath>
      </Reference>
      <Reference Include="Mono.CecilX.Rocks">
-     <HintPath>C:\Users\luohr\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
+     <HintPath>C:\Users\luohr\OneDrive\Documents\GitHub\1D-Conquest\Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="mscorlib">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.31f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>

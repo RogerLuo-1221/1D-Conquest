@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Card
     - DragDrop
     - DrawCards
     - FlipCards
@@ -85,6 +86,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: DragDrop
     methodName: EndDrag
+  - assembly: Assembly-CSharp
+    fullTypeName: Card
+    methodName: GetValueById
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -118,41 +122,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1608}
     - Class: 114
-      Script: {instanceID: 2222}
+      Script: {instanceID: 2224}
     - Class: 114
-      Script: {instanceID: 2546}
+      Script: {instanceID: 2548}
     - Class: 114
-      Script: {instanceID: 2666}
+      Script: {instanceID: 2668}
     - Class: 114
-      Script: {instanceID: 2868}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 3266}
+      Script: {instanceID: 3268}
     - Class: 114
-      Script: {instanceID: 4080}
+      Script: {instanceID: 4082}
     - Class: 114
-      Script: {instanceID: 4230}
+      Script: {instanceID: 4232}
     - Class: 114
-      Script: {instanceID: 4476}
+      Script: {instanceID: 4478}
     - Class: 114
-      Script: {instanceID: 4500}
+      Script: {instanceID: 4502}
     - Class: 114
-      Script: {instanceID: 4596}
+      Script: {instanceID: 4598}
     - Class: 114
-      Script: {instanceID: 4974}
+      Script: {instanceID: 4976}
     - Class: 114
-      Script: {instanceID: 5214}
+      Script: {instanceID: 5216}
     - Class: 114
-      Script: {instanceID: 5948}
+      Script: {instanceID: 5950}
     - Class: 114
-      Script: {instanceID: 6282}
+      Script: {instanceID: 6284}
     - Class: 114
-      Script: {instanceID: 6622}
+      Script: {instanceID: 6624}
     - Class: 114
-      Script: {instanceID: 7034}
+      Script: {instanceID: 7036}
     - Class: 114
-      Script: {instanceID: 7292}
+      Script: {instanceID: 7294}
     - Class: 114
-      Script: {instanceID: 8060}
+      Script: {instanceID: 8062}
+    - Class: 114
+      Script: {instanceID: 28774}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -308,6 +314,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: RandomColor
+  - hash:
+      serializedVersion: 2
+      Hash: 77527a22d303746b3204d914bcf717dd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurnBasedSystem
   - hash:
       serializedVersion: 2
       Hash: 996ab6f63c29d8bd7edbdf0f4d6c46a8
@@ -1636,7 +1648,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: b964cf178b1c5370ae004cbfb6481c02
+      Hash: 0e73599f8a7dab502904b5090b641ca5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerManager
@@ -1682,7 +1694,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 80cb77ece748997b82783a7f1f137046
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: f2abea5ff6b5542e697ffa16d0e48182
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Card
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/luohr/1D-Conquest/Build/1D_Conquest.exe
+  playerPath: C:/Users/luohr/OneDrive/Documents/GitHub/1D-Conquest/Build/1D_Conquest.exe

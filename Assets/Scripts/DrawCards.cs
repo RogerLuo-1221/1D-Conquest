@@ -13,6 +13,6 @@ public class DrawCards : NetworkBehaviour
     {
         var networkId = NetworkClient.connection.identity;
         _playerManager = networkId.GetComponent<PlayerManager>();
-        _playerManager.CmdDealCards();
+        _playerManager.CmdDealCard();
     }
 }

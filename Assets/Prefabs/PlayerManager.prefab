@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bd0fa854231674e9ba420dcc959c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
+  syncDirection: 1
   syncMode: 0
   syncInterval: 0
   cardPrefab: {fileID: 4139534141727907049, guid: ec8f0658a86ad3247ad9179eadc12437, type: 3}

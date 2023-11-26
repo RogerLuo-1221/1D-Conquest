@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerManager : NetworkBehaviour
 {
@@ -10,9 +11,12 @@ public class PlayerManager : NetworkBehaviour
     public GameObject playerArea;
     public GameObject opponentArea;
     public GameObject publicArea;
-
-    private List<GameObject> _deck = new List<GameObject>();
-    private int _deckIndex;
+    
+    [SyncVar]
+    public List<int> deck = new List<int>();
+    
+    [SyncVar]
+    public int deckIndex;
 
     public override void OnStartClient()
     {
@@ -22,12 +26,12 @@ public class PlayerManager : NetworkBehaviour
         opponentArea = GameObject.Find("Opponent Area");
         publicArea = GameObject.Find("Public Area");
     }
-    
+
     [Server]
     public override void OnStartServer()
     {
         base.OnStartServer();
-        
+
         GenerateDeck();
         ShuttleDeck();
     }
@@ -38,39 +42,42 @@ public class PlayerManager : NetworkBehaviour
         {
             for (var cardCount = 0; cardCount < 4; cardCount++)
             {
-                var card = Instantiate(cardPrefab, Vector2.zero, Quaternion.identity);
-                card.transform.GetChild(1).GetComponent<TMP_Text>().text = cardValue.ToString();
-                NetworkServer.Spawn(card, connectionToClient);
-                
-                _deck.Add(card);
+                deck.Add(cardValue);
             }
         }
     }
-
+    
     private void ShuttleDeck()
     {
         for (var i = 0; i < 52; i++)
         {
             var swapIndex = Random.Range(0, 52);
-            (_deck[i], _deck[swapIndex]) = (_deck[swapIndex], _deck[i]);
+            (deck[i], deck[swapIndex]) = (deck[swapIndex], deck[i]);
         }
     }
-    
-    [Command]
-    public void CmdDealCards()
-    {
-        for (var i = 0; i < 5; i++)
-        {
-            RpcRenderCards(NextCardInDeck(), "Deal");
-        }
-    }
-    
-    private GameObject NextCardInDeck()
-    {
-        var returnCard = _deck[_deckIndex];
-        _deckIndex++;
 
-        return returnCard;
+    [Command]
+    public void CmdDealCard()
+    {
+        var card = Instantiate(cardPrefab, new Vector2(), Quaternion.identity);
+        NetworkServer.Spawn(card);
+        RpcDealCard(card);
+    }
+
+    [ClientRpc]
+    private void RpcDealCard(GameObject card)
+    {
+        card.GetComponent<Card>().id = deckIndex++;
+        
+        if (isOwned)
+        {
+            card.transform.SetParent(playerArea.transform, false);
+            card.GetComponent<FlipCards>().FlipCard();
+        }
+        else
+        {
+            card.transform.SetParent(opponentArea.transform, false);
+        }
     }
 
     [Command]
@@ -110,6 +117,18 @@ public class PlayerManager : NetworkBehaviour
                     
                 break;
         }
+    }
+
+    [Command]
+    public void CmdGetCardValue(int id, GameObject card)
+    {
+        RpcGetValueById(id, card);
+    }
+
+    [ClientRpc]
+    private void RpcGetValueById(int id, GameObject card)
+    {
+        card.GetComponent<Card>().number.text = deck[id].ToString();
     }
     
 }
