@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Timeline;
 using Random = UnityEngine.Random;
 
 // TurnStart: 1. determine who goes first and second; 2. deal cards
